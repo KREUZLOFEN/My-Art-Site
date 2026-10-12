@@ -1,0 +1,331 @@
+<title>Diego Gabriele De Corso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Kontaktbogen — jedes Projekt ist ein Filmstreifen mit Bildnummern und Formatangaben */
+:root{
+  --bg:#efece6; --surface:#e4e0d8; --fg:#1d1a17; --muted:#6c655c; --line:#cdc7bc; --accent:#b3261e;
+  --ph:#d7d2c8; --ph-fg:#7a7266;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151311; --surface:#1e1b18; --fg:#ebe6de; --muted:#9a9187; --line:#34302b; --accent:#e0483d;
+  --ph:#26221e; --ph-fg:#8a8178; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151311; --surface:#1e1b18; --fg:#ebe6de; --muted:#9a9187; --line:#34302b; --accent:#e0483d;
+  --ph:#26221e; --ph-fg:#8a8178; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:clamp(16px,4vw,48px);padding-block:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,9vw,112px);padding-block:28px 64px}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Kopf */
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+header.top nav{display:flex;gap:20px;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--fg)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end}
+.hero h1{font:800 clamp(56px,11vw,150px)/.86 var(--display);text-transform:uppercase;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.hero h1 span{color:var(--accent)}
+.hero p{margin:0;max-width:44ch;color:var(--muted)}
+.hero .meta{display:flex;flex-direction:column;gap:18px}
+.roles{display:flex;gap:8px;flex-wrap:wrap}
+.roles span{font:500 12px var(--mono);border:1px solid var(--line);padding:4px 10px;border-radius:2px}
+
+/* Platzhalter */
+.ph{position:relative;background:var(--ph);color:var(--ph-fg);width:100%;max-width:100%;display:grid;place-items:center;overflow:hidden}
+.ph::before,.ph::after{content:"";position:absolute;width:14px;height:14px;border:1.5px solid var(--ph-fg);opacity:.6}
+.ph::before{top:10px;left:10px;border-right:0;border-bottom:0}
+.ph::after{bottom:10px;right:10px;border-left:0;border-top:0}
+.ph .ph-in{display:flex;flex-direction:column;align-items:center;gap:6px;font:500 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;text-align:center;padding:12px}
+.ph svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5}
+.ph img,.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.r-scope{aspect-ratio:2.39/1}.r-169{aspect-ratio:16/9}.r-32{aspect-ratio:3/2}.r-23{aspect-ratio:2/3}.r-45{aspect-ratio:4/5}
+
+/* Hauptprojekt */
+.feature{display:flex;flex-direction:column;gap:20px}
+.feature-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+h2{font:800 clamp(36px,6vw,64px)/.95 var(--display);text-transform:uppercase;margin:0;text-wrap:balance}
+h3{font:800 28px/1 var(--display);text-transform:uppercase;margin:0}
+.feature-body{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:32px}
+.feature-body p{margin:0;max-width:62ch}
+dl.credits{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px}
+dl.credits dt{font:500 12px/1.9 var(--mono);color:var(--muted);text-transform:uppercase}
+dl.credits dd{margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 14px var(--body);text-decoration:none;background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:2px;width:fit-content}
+.btn:hover{background:var(--accent);color:#fff}
+
+/* Projektliste */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;background:transparent;color:var(--fg);border:1px solid var(--line);padding:7px 12px;border-radius:2px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .row{display:flex;justify-content:space-between;gap:12px}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.status{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:2px;border:1px solid currentColor;white-space:nowrap}
+.status.wip{color:var(--accent)}
+
+/* Kontaktbogen Foto */
+.sheet{background:var(--surface);padding:clamp(14px,2.5vw,28px);display:flex;flex-direction:column;gap:14px}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.frame{display:flex;flex-direction:column;gap:5px}
+.frame .label{display:flex;justify-content:space-between;font-size:11px}
+.frame .label b{color:var(--accent);font-weight:500}
+
+/* Kunstwerke */
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 32px;align-items:start}
+.work{margin:0;display:flex;flex-direction:column;gap:14px;min-width:0}
+.work figcaption{display:flex;flex-direction:column;gap:10px}
+.work figcaption p{margin:0;color:var(--muted);font-size:15px;max-width:52ch}
+@media (max-width:640px){.works{grid-template-columns:1fr}}
+
+/* Kontakt */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;border-top:1px solid var(--line);padding-top:32px;align-items:end}
+.mail{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mail code{font:500 clamp(16px,2.4vw,22px) var(--mono);user-select:all;word-break:break-all}
+.mail button{font:500 12px var(--mono);background:transparent;color:var(--fg);border:1px solid var(--line);padding:6px 10px;border-radius:2px;cursor:pointer}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.feature-body,.contact{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:540px){
+  .grid{grid-template-columns:1fr}
+  .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:no-preference){.card{transition:opacity .2s}}
+</style>
+
+<!--
+  PLATZHALTER ERSETZEN
+  Bild:  innerhalb eines .ph-Elements  <img src="bilder/dein-bild.jpg" alt="Beschreibung">  einfuegen
+  Video: <video src="videos/clip.mp4" poster="bilder/poster.jpg" controls playsinline></video>
+  Das Bild/Video legt sich automatisch ueber den Platzhalter (object-fit: cover).
+-->
+
+<div class="wrap">
+  <header class="top">
+    <span class="label">Portfolio · 2026</span>
+    <nav class="label">
+      <a href="#film">Film</a><a href="#projekte">Projekte</a><a href="#foto">Fotografie</a><a href="#kunst">Kunstwerke</a><a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Diego<br>Gabriele<br>De Corso<span>.</span></h1>
+    <div class="meta">
+      <div class="roles"><span>Regie</span><span>Kamera</span><span>Fotografie</span><span>Schnitt</span></div>
+      <p>Kurzfilme, Dokumentarisches und Fotografie aus Zürich. Nahe an Gesichtern, warmes Licht, Geschichten über Druck und Erinnerung.</p>
+    </div>
+  </section>
+
+  <!-- Hauptprojekt -->
+  <section class="feature" id="film">
+    <div class="feature-head">
+      <h2>Stressed Nerves</h2>
+      <span class="label">Kurzfilm · 2.39:1</span>
+    </div>
+    <div class="ph r-scope">
+      <!-- <video src="videos/stressed-nerves-trailer.mp4" poster="bilder/stressed-nerves.jpg" controls playsinline></video> -->
+      <div class="ph-in">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="1"/><path d="M17 10l5-3v10l-5-3z"/></svg>
+        Video · Trailer oder Filmstill<br>2.39:1
+      </div>
+    </div>
+    <div class="feature-body">
+      <p>Ein Kurzfilm über innere Anspannung, erzählt in engen Close-ups und warmem, cineastischem Licht. Ersetze diesen Text durch eine kurze Synopsis: worum es geht, was du zeigen wolltest, was dich daran interessiert hat.</p>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <dl class="credits">
+          <dt>Regie</dt><dd>Diego Gabriele De Corso</dd>
+          <dt>Jahr</dt><dd>Jahr eintragen</dd>
+          <dt>Länge</dt><dd>00:00 min</dd>
+          <dt>Format</dt><dd>Digital, 2.39:1</dd>
+        </dl>
+        <a class="btn" href="https://www.youtube.com/watch?v=9Nm9hafkSS0" target="_blank" rel="noopener">Auf YouTube ansehen ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projekte -->
+  <section id="projekte">
+    <div class="section-head">
+      <h2>Projekte</h2>
+      <div class="filters" role="group" aria-label="Projekte filtern">
+        <button type="button" data-f="alle" aria-pressed="true">Alle</button>
+        <button type="button" data-f="film" aria-pressed="false">Film</button>
+        <button type="button" data-f="doku" aria-pressed="false">Doku</button>
+        <button type="button" data-f="foto" aria-pressed="false">Foto</button>
+        <button type="button" data-f="kunst" aria-pressed="false">Kunst</button>
+      </div>
+    </div>
+    <div class="grid" id="grid">
+      <article class="card" data-cat="doku">
+        <div class="ph r-169"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="1"/><path d="M17 10l5-3v10l-5-3z"/></svg>Video · 16:9</div></div>
+        <div class="row"><h3>Anni di Piombo</h3><span class="status wip">In Arbeit</span></div>
+        <p>Video-Dokumentation über die bleiernen Jahre in Italien.</p>
+      </article>
+      <article class="card" data-cat="film">
+        <div class="ph r-169"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="1"/><path d="M17 10l5-3v10l-5-3z"/></svg>Video · 16:9</div></div>
+        <div class="row"><h3>Stressed Nerves</h3><span class="status">Fertig</span></div>
+        <p>Kurzfilm. Enge Gesichts-Close-ups, warmer Look.</p>
+      </article>
+      <article class="card" data-cat="foto">
+        <div class="ph r-32"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-6-6-9 9"/></svg>Bild · 3:2</div></div>
+        <div class="row"><h3>Fotoserie I</h3><span class="status">Fertig</span></div>
+        <p>Titel und kurze Beschreibung der Serie eintragen.</p>
+      </article>
+      <article class="card" data-cat="foto">
+        <div class="ph r-32"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-6-6-9 9"/></svg>Bild · 3:2</div></div>
+        <div class="row"><h3>Fotoserie II</h3><span class="status">Fertig</span></div>
+        <p>Titel und kurze Beschreibung der Serie eintragen.</p>
+      </article>
+      <article class="card" data-cat="film">
+        <div class="ph r-169"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="1"/><path d="M17 10l5-3v10l-5-3z"/></svg>Video · 16:9</div></div>
+        <div class="row"><h3>Projekt-Titel</h3><span class="status wip">Idee</span></div>
+        <p>Platz für das nächste Filmprojekt.</p>
+      </article>
+      <article class="card" data-cat="foto">
+        <div class="ph r-32"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-6-6-9 9"/></svg>Bild · 3:2</div></div>
+        <div class="row"><h3>Fotoserie III</h3><span class="status">Fertig</span></div>
+        <p>Titel und kurze Beschreibung der Serie eintragen.</p>
+      </article>
+      <article class="card" data-cat="kunst">
+        <div class="ph r-45"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk · 4:5</div></div>
+        <div class="row"><h3>Werk-Titel</h3><span class="status">Fertig</span></div>
+        <p>Technik, Masse, kurze Beschreibung.</p>
+      </article>
+      <article class="card" data-cat="kunst">
+        <div class="ph r-45"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk · 4:5</div></div>
+        <div class="row"><h3>Werk-Titel</h3><span class="status wip">In Arbeit</span></div>
+        <p>Technik, Masse, kurze Beschreibung.</p>
+      </article>
+      <article class="card" data-cat="kunst">
+        <div class="ph r-45"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk · 4:5</div></div>
+        <div class="row"><h3>Werk-Titel</h3><span class="status">Fertig</span></div>
+        <p>Technik, Masse, kurze Beschreibung.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Kunstwerke -->
+  <section id="kunst">
+    <div class="section-head">
+      <h2>Kunstwerke</h2>
+      <span class="label">Malerei · Zeichnung · Objekt</span>
+    </div>
+    <div class="works">
+      <figure class="work">
+        <div class="ph r-45"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk<br>Hochformat</div></div>
+        <figcaption>
+          <h3>Werk-Titel</h3>
+          <dl class="credits">
+            <dt>Jahr</dt><dd>2026</dd>
+            <dt>Technik</dt><dd>Acryl auf Leinwand</dd>
+            <dt>Masse</dt><dd>80 × 100 cm</dd>
+          </dl>
+          <p>Kurzer Text zum Werk: Idee, Material, Entstehung.</p>
+        </figcaption>
+      </figure>
+      <figure class="work">
+        <div class="ph r-32"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk<br>Querformat</div></div>
+        <figcaption>
+          <h3>Werk-Titel</h3>
+          <dl class="credits">
+            <dt>Jahr</dt><dd>2026</dd>
+            <dt>Technik</dt><dd>Kohle auf Papier</dd>
+            <dt>Masse</dt><dd>42 × 29.7 cm</dd>
+          </dl>
+          <p>Kurzer Text zum Werk: Idee, Material, Entstehung.</p>
+        </figcaption>
+      </figure>
+      <figure class="work">
+        <div class="ph r-45"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk<br>Hochformat</div></div>
+        <figcaption>
+          <h3>Werk-Titel</h3>
+          <dl class="credits">
+            <dt>Jahr</dt><dd>2026</dd>
+            <dt>Technik</dt><dd>Mischtechnik</dd>
+            <dt>Masse</dt><dd>50 × 70 cm</dd>
+          </dl>
+          <p>Kurzer Text zum Werk: Idee, Material, Entstehung.</p>
+        </figcaption>
+      </figure>
+      <figure class="work">
+        <div class="ph r-32"><div class="ph-in"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="12"/></svg>Kunstwerk<br>Querformat</div></div>
+        <figcaption>
+          <h3>Werk-Titel</h3>
+          <dl class="credits">
+            <dt>Jahr</dt><dd>2026</dd>
+            <dt>Technik</dt><dd>Öl auf Holz</dd>
+            <dt>Masse</dt><dd>60 × 40 cm</dd>
+          </dl>
+          <p>Kurzer Text zum Werk: Idee, Material, Entstehung.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Fotografie als Kontaktbogen -->
+  <section id="foto">
+    <div class="section-head">
+      <h2>Fotografie</h2>
+      <span class="label">Kontaktbogen · 8 Bilder</span>
+    </div>
+    <div class="sheet">
+      <div class="strip">
+        <div class="frame"><div class="ph r-23"><div class="ph-in">Bild<br>2:3</div></div><span class="label">Titel <b>01A</b></span></div>
+        <div class="frame"><div class="ph r-23"><div class="ph-in">Bild<br>2:3</div></div><span class="label">Titel <b>02A</b></span></div>
+        <div class="frame"><div class="ph r-23"><div class="ph-in">Bild<br>2:3</div></div><span class="label">Titel <b>03A</b></span></div>
+        <div class="frame"><div class="ph r-23"><div class="ph-in">Bild<br>2:3</div></div><span class="label">Titel <b>04A</b></span></div>
+      </div>
+      <div class="strip">
+        <div class="frame"><div class="ph r-32"><div class="ph-in">Bild<br>3:2</div></div><span class="label">Titel <b>05A</b></span></div>
+        <div class="frame"><div class="ph r-32"><div class="ph-in">Bild<br>3:2</div></div><span class="label">Titel <b>06A</b></span></div>
+        <div class="frame"><div class="ph r-32"><div class="ph-in">Bild<br>3:2</div></div><span class="label">Titel <b>07A</b></span></div>
+        <div class="frame"><div class="ph r-32"><div class="ph-in">Bild<br>3:2</div></div><span class="label">Titel <b>08A</b></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="contact" id="kontakt">
+    <h2>Zusammen<br>arbeiten?</h2>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="label">E-Mail</span>
+      <div class="mail">
+        <code id="mail">hallo@kreativkollektiv.art</code>
+        <button type="button" id="copy">Kopieren</button>
+      </div>
+      <span class="label">Instagram · YouTube · Vimeo — Links eintragen</span>
+    </div>
+  </section>
+
+  <footer class="label">
+    <span>© 2026 Diego Gabriele De Corso</span>
+    <span>Zürich</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.filters button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const f=b.dataset.f;
+    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    document.querySelectorAll('#grid .card').forEach(c=>{c.hidden = f!=='alle' && c.dataset.cat!==f;});
+  });
+});
+document.getElementById('copy').addEventListener('click',e=>{
+  const t=document.getElementById('mail').textContent;
+  const done=()=>{e.target.textContent='Kopiert';setTimeout(()=>e.target.textContent='Kopieren',1500)};
+  navigator.clipboard.writeText(t).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);});
+});
+</script>
